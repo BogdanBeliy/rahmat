@@ -1,0 +1,73 @@
+p {
+    font-size: 20px !important;
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: bolder !important;
+}
+
+.utp {
+    padding-top: 20%;
+    height: 90vh;
+}
+.utp h1{
+    font-weight: bolder;
+}
+.utp-btn {
+    margin-top: 3%;
+}
+.company-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company h2 {
+    font-weight: bolder;
+    font-size: 34px;
+}
+.company p {
+
+    font-size: 20px;
+}
+.company .image{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+}
+
+.prices{
+    padding-top: 10%;
+}
+.prices h2 {
+    font-size: 34px;
+    font-weight: bolder;
+    padding-bottom: 40px;
+}
+.eccept-granuls{
+    margin-top: 5%;
+}
+.eccept-granuls h2 {
+    font-size: 34px;
+    font-weight: bolder;
+    padding-bottom: 40px;
+}
+.delivery {
+        margin-top: 5%;
+}
+.delivery h2{
+    padding-bottom: 40px;
+    font-size: 34px;
+    font-weight: bolder;
+}
+.delivery-text {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer{
+    margin-top: 5%;
+    background: #00b0ea;
+}

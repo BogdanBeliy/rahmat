@@ -1,0 +1,171 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">RAHMAT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="?lang=ru">Ru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?lang=en">En</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?lang=de">De</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?lang=pl">Pl</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?lang=cs">Cs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 utp text-center">
+            <h1 class="text-center">{{ utp.title }}</h1>
+            <button type="submit" class="btn btn-danger utp-btn justify-center">Продукция</button>
+        </div>
+    </div>
+</div>
+<div class="container company">
+    <div class="row">
+        <div class="col-md-6 company-text">
+            <h2>Компания существует с 2007 года</h2>
+            <p class="pt-4">
+                <b>Основная деятельность</b>: приемка и переработка отходов битумосодержащих кровельных материалов
+                <br><b>Цель</b>: получение вторичной продукции на основании технических условий
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img class="image" src="https://ufastroysnab.ru/images/67.jpg" alt="">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>
+<div class="container prices">
+    <h2>Мы производим:</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top" src="https://ufastroysnab.ru/images/67.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">Грануляты битумосодержащие</h3>
+                    <b>фракцией 0,5-10 мм</b>
+                    <h4>105-115 евро</h4>
+                    <p class="card-text">(в зависимости от условий отправителя)</p>
+                    <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top" src="https://ufastroysnab.ru/images/67.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">Грануляты битумосодержащие</h3>
+                    <b>фракция 0,5-30 мм</b>
+                    <h4>90-100 еврo</h4>
+                    <p class="card-text">(в зависимости от условий отправителя)</p>
+                    <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        <i class="text-center pt-3">Продукция отпускается в биг-бегах по 0,5 тн, 1 тн. Возможна отгрузка навалом.</i>
+    </div>
+</div>
+<div class="container delivery">
+    <div class="row">
+        <div class="col-md-6 delivery-text">
+            <h2>Поставка:</h2>
+            <p>Примерный график отгрузок продукции: <br>
+
+                - 500 тн в неделю при фракции 0,5-10 мм <br>
+                - 1000 тн в неделю при фракции 0,5-30 мм
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <h3>Оставить заявку:</h3>
+            <form class="form-horizontal" action="#">
+                <input class="form-control mt-2" type="text" placeholder="Имя">
+                <input class="form-control mt-2 mb-2" type="text" placeholder="Телефон">
+                <button type="submit" class="btn-success btn w-100">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container eccept-granuls">
+    <div class="row">
+        <h2>Применение гранулят:</h2>
+        <ul>
+            <li>Приготовление асфальтобетона для дорожного строительства и ремонта</li>
+            <li>Приготовление асфальтобетона для ямочного ремонта и ИК ремонта дорожного покрытия</li>
+            <li>Стабилизирующие добавки для щебеночно-мастичного асфальтобетона</li>
+            <li>Геосетки</li>
+            <li>Шумоизоляционные материалы и виброизоляционные материалы</li>
+            <li>Изоляционные работы</li>
+            <li>Кровельные работы</li>
+            <li>Производство кровельных и изоляционных материалов (рубероида, мастик, праймера и т.д).</li>
+            <li>Устройство элементов благоустройства территорий, твердых покрытий и оснований под покрытия иного
+                назначения,
+            </li>
+            <li>Противофильтрационных экранов на полигонах ТКО и в качестве матрицы при захоронении токсичных твердых
+                отходов
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-md-6"><h3>Контакты:</h3>
+                <b>Телефоны:</b><br>
+                +375 29 372 71 32; <br>
+                +375 33 344 94 96; <br>
+                <b>Тел/факс:</b> 8 02235 2 92 62 <br>
+                <b>Электронная почта:</b> ale1894@tut.by <br>
+                <b>Адрес:</b> 223049, Минская обл., Минский р-н., <br>Щомыслицкий с/с, дом 16, офис 12Д
+            </div>
+            <div class="col-md-6"><h3>Реквизиты:</h3>
+                <b>Телефоны:</b><br>
+                +375 29 372 71 32; <br>
+                +375 33 344 94 96; <br>
+                <b>Тел/факс:</b> 8 02235 2 92 62 <br>
+                <b>Электронная почта:</b> ale1894@tut.by <br>
+                <b>Адрес:</b> 223049, Минская обл., Минский р-н., <br>Щомыслицкий с/с, дом 16, офис 12Д
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
