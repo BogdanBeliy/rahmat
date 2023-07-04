@@ -5,7 +5,8 @@ from parler.models import TranslatedFields, TranslatableModel
 
 class UTP(TranslatableModel):
     translations = TranslatedFields(
-        title=models.CharField(max_length=500, default="")
+        title=models.CharField(max_length=500, default=""),
+        btn_text=models.CharField(max_length=255, default='Продукция')
     )
     objects = TranslatableManager()
 
@@ -39,7 +40,7 @@ class Product(TranslatableModel):
     )
 
 
-class ShortDescription(models.Model):
+class ShortDescription(TranslatableModel):
     translations = TranslatedFields(
         text=models.CharField(max_length=255)
     )

@@ -20,3 +20,5 @@ class ContentView(ListView):
             self.object_list = self.queryset.language('ru').first()
             context = self.get_context_data()
             return self.render_to_response(context)
+
+

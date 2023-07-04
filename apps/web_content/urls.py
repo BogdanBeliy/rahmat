@@ -1,8 +1,8 @@
 from django.urls import path
 
-from apps.web_content.views import HeaderContentView
+from apps.web_content.views import ContentView
 
 urlpatterns = [
-    path('', HeaderContentView.as_view()),
+    path('', ContentView.as_view()),
 ]
 
