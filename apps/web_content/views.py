@@ -3,22 +3,34 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import ListView
 
-from apps.web_content.models import UTP
+from apps.web_content.models import UTP, About, Delivery, AboutProduction, Product, Contacts
 
 
-class ContentView(ListView):
-    template_name = 'index.html'
-    queryset = UTP.objects.all()
-    context_object_name = 'utp'
+def index(request, *args, **kwargs):
+    utp = None
+    about = None
+    contacts = Contacts.objects.all().first()
+    delivery = None
+    about_production = None
+    products = None
+    if request.GET.get('lang'):
+        utp = UTP.objects.language(request.GET['lang']).first()
+        about = About.objects.language(request.GET['lang']).first()
+        delivery = Delivery.objects.language(request.GET['lang']).first()
+        about_production = AboutProduction.objects.language(request.GET['lang']).first()
+        products = Product.objects.language(request.GET['lang']).all()
 
-    def get(self, request, *args, **kwargs):
-        if request.GET.get('lang'):
-            self.object_list = self.queryset.language(request.GET['lang']).first()
-            context = self.get_context_data()
-            return self.render_to_response(context)
-        else:
-            self.object_list = self.queryset.language('ru').first()
-            context = self.get_context_data()
-            return self.render_to_response(context)
-
-
+    else:
+        utp = UTP.objects.language('ru').first()
+        about = About.objects.language('ru').first()
+        delivery = Delivery.objects.language('ru').first()
+        about_production = AboutProduction.objects.language('ru').first()
+        products = Product.objects.language('ru').all()
+    context = {
+        'utp': utp,
+        'about': about,
+        'delivery': delivery,
+        'about_production': about_production,
+        'products': products,
+    }
+    return render(request, 'index.html', context=context)

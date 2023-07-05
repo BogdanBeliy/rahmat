@@ -54,3 +54,4 @@ class Contacts(models.Model):
 
 class Phone(models.Model):
     contact = models.ForeignKey(Contacts, on_delete=models.CASCADE, related_name='phones')
+    number = models.CharField(max_length=255)
