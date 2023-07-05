@@ -42,8 +42,9 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid" style="background: url({% static 'images/background.jpg' %}); background-size: cover; background-position: center">
-    <div class="row">
+<div class="container-fluid"
+     style="background: url({% static 'images/background.jpg' %}); background-size: cover; background-position: center">
+    <div class="row m-auto" style="width: 80%">
         <div class="col-md-12 utp text-center">
             <h1 class="text-center">{{ utp.title }}</h1>
             <button type="submit" class="btn btn-danger utp-btn justify-center">Продукция</button>
@@ -53,10 +54,9 @@
 <div class="container company">
     <div class="row">
         <div class="col-md-6 company-text">
-            <h2>Компания существует с 2007 года</h2>
+            <h2>{{ about.header }}</h2>
             <p class="pt-4">
-                <b>Основная деятельность</b>: приемка и переработка отходов битумосодержащих кровельных материалов
-                <br><b>Цель</b>: получение вторичной продукции на основании технических условий
+                {{ about.text }}
             </p>
         </div>
         <div class="col-md-6">
@@ -64,61 +64,35 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
-    </div>
-</div>
 <div class="container prices">
-    <h2>Мы производим:</h2>
     <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <img class="card-img-top" src="https://ufastroysnab.ru/images/67.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title">Грануляты битумосодержащие</h3>
-                    <b>фракцией 0,5-10 мм</b>
-                    <h4>105-115 евро</h4>
-                    <p class="card-text">(в зависимости от условий отправителя)</p>
-                    <a href="#" class="btn btn-primary">Подробнее</a>
+        {% for product in products %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.title }}</h3>
+                        <b>{{ product.fraction }}</b>
+                        <h4>{{ product.price }}</h4>
+                        <p class="card-text">{{ product.additional_information }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <img class="card-img-top" src="https://ufastroysnab.ru/images/67.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title">Грануляты битумосодержащие</h3>
-                    <b>фракция 0,5-30 мм</b>
-                    <h4>90-100 еврo</h4>
-                    <p class="card-text">(в зависимости от условий отправителя)</p>
-                    <a href="#" class="btn btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-        <i class="text-center pt-3">Продукция отпускается в биг-бегах по 0,5 тн, 1 тн. Возможна отгрузка навалом.</i>
+        {% endfor %}
+        <i class="text-center pt-3">{{ short_description.text }}</i>
     </div>
 </div>
 <div class="container delivery">
     <div class="row">
         <div class="col-md-6 delivery-text">
-            <h2>Поставка:</h2>
-            <p>Примерный график отгрузок продукции: <br>
-
-                - 500 тн в неделю при фракции 0,5-10 мм <br>
-                - 1000 тн в неделю при фракции 0,5-30 мм
-            </p>
+            <h2>{{ delivery.header }}</h2>
+            <p>{{ delivery.text }}</p>
         </div>
+
         <div class="col-md-6 text-center">
             <h3>Оставить заявку:</h3>
             <form class="form-horizontal" action="#">
-                <input class="form-control mt-2" type="text" placeholder="Имя">
-                <input class="form-control mt-2 mb-2" type="text" placeholder="Телефон">
+                <input class="form-control mt-2" type="text" placeholder="Name">
+                <input class="form-control mt-2 mb-2" type="text" placeholder="Phone">
                 <button type="submit" class="btn-success btn w-100">Отправить</button>
             </form>
         </div>
@@ -145,16 +119,17 @@
         </ul>
     </div>
 </div>
-<div class="footer">
+<div class="footer" style="color: #ffffff; background: #1d1d1d">
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-md-6"><h3>Контакты:</h3>
-                <b>Телефоны:</b><br>
-                +375 29 372 71 32; <br>
-                +375 33 344 94 96; <br>
-                <b>Тел/факс:</b> 8 02235 2 92 62 <br>
+                <b>Телефоны:</b>
+                {% for phone in phones %}
+                    <br>{{ phone.number }}
+                {% endfor %}
+                <b>Fax:</b> {{ contacts.fax }} <br>
                 <b>Электронная почта:</b> ale1894@tut.by <br>
-                <b>Адрес:</b> 223049, Минская обл., Минский р-н., <br>Щомыслицкий с/с, дом 16, офис 12Д
+                <b>Адрес:</b> <br>{{ contacts.address }}
             </div>
             <div class="col-md-6"><h3>Реквизиты:</h3>
                 <b>Телефоны:</b><br>

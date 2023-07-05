@@ -38,6 +38,7 @@ class Product(TranslatableModel):
         price=models.CharField(max_length=255),
         additional_information=models.TextField(),
     )
+    image = models.ImageField(upload_to='images')
 
 
 class ShortDescription(TranslatableModel):
@@ -46,12 +47,14 @@ class ShortDescription(TranslatableModel):
     )
 
 
-class Contacts(models.Model):
-    address = models.CharField(max_length=600)
+class Contacts(TranslatableModel):
+    translations = TranslatedFields(
+        address=models.CharField(max_length=600),
+
+    )
     email = models.EmailField()
     fax = models.CharField(max_length=255)
 
 
 class Phone(models.Model):
-    contact = models.ForeignKey(Contacts, on_delete=models.CASCADE, related_name='phones')
     number = models.CharField(max_length=255)

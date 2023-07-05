@@ -1,7 +1,6 @@
 p {
     font-size: 20px !important;
 }
-
 h2 {
     font-size: 34px;
     font-weight: bolder !important;
@@ -13,6 +12,7 @@ h2 {
 }
 .utp h1{
     font-weight: bolder;
+    width: 80%;
 }
 .utp-btn {
     margin-top: 3%;
@@ -67,7 +67,9 @@ h2 {
     justify-content: center;
     flex-direction: column;
 }
+
 .footer{
     margin-top: 5%;
-    background: #00b0ea;
+    color: #fff;
+    background: #1d1d1d;
 }
