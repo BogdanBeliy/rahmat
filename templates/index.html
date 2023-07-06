@@ -90,9 +90,9 @@
 
         <div class="col-md-6 text-center">
             <h3>Оставить заявку:</h3>
-            <form class="form-horizontal" action="#">
-                <input class="form-control mt-2" type="text" placeholder="Name">
-                <input class="form-control mt-2 mb-2" type="text" placeholder="Phone">
+            <form class="form-horizontal" action="#" method="POST">
+                {% csrf_token %}
+                {{ form.as_div }}
                 <button type="submit" class="btn-success btn w-100">Отправить</button>
             </form>
         </div>
@@ -102,20 +102,9 @@
     <div class="row">
         <h2>Применение гранулят:</h2>
         <ul>
-            <li>Приготовление асфальтобетона для дорожного строительства и ремонта</li>
-            <li>Приготовление асфальтобетона для ямочного ремонта и ИК ремонта дорожного покрытия</li>
-            <li>Стабилизирующие добавки для щебеночно-мастичного асфальтобетона</li>
-            <li>Геосетки</li>
-            <li>Шумоизоляционные материалы и виброизоляционные материалы</li>
-            <li>Изоляционные работы</li>
-            <li>Кровельные работы</li>
-            <li>Производство кровельных и изоляционных материалов (рубероида, мастик, праймера и т.д).</li>
-            <li>Устройство элементов благоустройства территорий, твердых покрытий и оснований под покрытия иного
-                назначения,
-            </li>
-            <li>Противофильтрационных экранов на полигонах ТКО и в качестве матрицы при захоронении токсичных твердых
-                отходов
-            </li>
+            {% for accept_granuls_item in accept_granuls_items %}
+                <li>{{ accept_granuls_item.text }}</li>
+            {% endfor %}
         </ul>
     </div>
 </div>

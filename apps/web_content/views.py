@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import ListView
 
+from apps.web_content.forms import LeadForm
 from apps.web_content.models import UTP, About, Delivery, AboutProduction, Product, Contacts, ShortDescription, Phone, \
     AcceptionGranulsHeader, AcceptGranulsItem
 
@@ -51,5 +52,6 @@ def index(request, *args, **kwargs):
         'contacts': contacts,
         'accept_granuls_header': accept_granuls_header,
         'accept_granuls_items': accept_granuls_items,
+        'form': LeadForm()
     }
     return render(request, 'index.html', context=context)
