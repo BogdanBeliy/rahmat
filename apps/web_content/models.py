@@ -50,7 +50,6 @@ class ShortDescription(TranslatableModel):
 class Contacts(TranslatableModel):
     translations = TranslatedFields(
         address=models.CharField(max_length=600),
-
     )
     email = models.EmailField()
     fax = models.CharField(max_length=255)
@@ -58,3 +57,20 @@ class Contacts(TranslatableModel):
 
 class Phone(models.Model):
     number = models.CharField(max_length=255)
+
+
+class Lead(models.Model):
+    name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+
+
+class AcceptionGranulsHeader(TranslatableModel):
+    translations = TranslatedFields(
+        header=models.CharField(max_length=255)
+    )
+
+
+class AcceptGranulsItem(TranslatableModel):
+    translations = TranslatedFields(
+        text=models.CharField(max_length=600)
+    )

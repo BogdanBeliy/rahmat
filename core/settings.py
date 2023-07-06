@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'parler',
     'apps.web_content',
-    'apps.leads',
 ]
 
 MIDDLEWARE = [

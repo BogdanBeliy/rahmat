@@ -1,7 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
 
-from apps.web_content.models import UTP, About, Delivery, Product, Contacts
+from apps.web_content.models import UTP, About, Delivery, Product, Contacts, AcceptionGranulsHeader, AcceptGranulsItem
 
 
 @admin.register(UTP)
@@ -27,3 +27,13 @@ class ProductAdmin(TranslatableAdmin):
 @admin.register(Contacts)
 class DeliveryAdmin(TranslatableAdmin):
     fields = ['address', 'fax', 'email']
+
+
+@admin.register(AcceptionGranulsHeader)
+class AcceptionGranulsHeaderAdmin(TranslatableAdmin):
+    fields = ['header']
+
+
+@admin.register(AcceptGranulsItem)
+class AcceptGranulsItemAdmin(TranslatableAdmin):
+    fields = ['text']
