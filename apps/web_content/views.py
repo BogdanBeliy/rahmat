@@ -40,7 +40,10 @@ def index(request, *args, **kwargs):
         contacts = Contacts.objects.language('ru').first()
         accept_granuls_header = AcceptionGranulsHeader.objects.language('ru').first()
         accept_granuls_items = AcceptGranulsItem.objects.language('ru').all()
-
+    if request.method == 'POST':
+        form = LeadForm(request.POST)
+        if form.is_valid():
+            form.save()
     context = {
         'utp': utp,
         'about': about,
