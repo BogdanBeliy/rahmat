@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6nxe+y^g3^bdyy$*77xwk(^g==!htq_8sno83uypopiw#z3&#8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -137,6 +137,8 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,  # the default; let .active_translations() return fallbacks too.
     }
 }
+
+
 LANGUAGES = (
     ('ru', _("Russia")),
     ('en', _("Ангийский")),

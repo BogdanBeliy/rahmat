@@ -41,7 +41,6 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./static:/static/
-      - ./media:/media/
 
 volumes:
   db:
