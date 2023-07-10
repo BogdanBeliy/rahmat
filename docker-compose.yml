@@ -40,6 +40,8 @@ services:
       - "8080:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      - ./static:/static/
+      - ./media:/media/
 
 volumes:
   db:
