@@ -2,7 +2,7 @@ from django.contrib import admin
 from parler.admin import TranslatableAdmin
 
 from apps.web_content.models import UTP, About, Delivery, Product, Contacts, AcceptionGranulsHeader, AcceptGranulsItem, \
-    Lead
+    Lead, Requisites, BackgroundImage
 
 
 @admin.register(UTP)
@@ -43,3 +43,13 @@ class AcceptGranulsItemAdmin(TranslatableAdmin):
 @admin.register(Lead)
 class AcceptGranulsItemAdmin(admin.ModelAdmin):
     fields = ['name', 'phone']
+
+
+@admin.register(Requisites)
+class RequisitesAdmin(TranslatableAdmin):
+    fields = ['fax', 'rs', 'address', 'bank', 'unn', 'email']
+
+
+@admin.register(BackgroundImage)
+class BackgroundAdmin(admin.ModelAdmin):
+    fields = ['image']

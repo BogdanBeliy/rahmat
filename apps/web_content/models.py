@@ -3,6 +3,10 @@ from parler.managers import TranslatableManager
 from parler.models import TranslatedFields, TranslatableModel
 
 
+class BackgroundImage(models.Model):
+    image = models.ImageField(upload_to='back', null=True)
+
+
 class UTP(TranslatableModel):
     translations = TranslatedFields(
         title=models.CharField(max_length=500, default=""),
@@ -73,4 +77,15 @@ class AcceptionGranulsHeader(TranslatableModel):
 class AcceptGranulsItem(TranslatableModel):
     translations = TranslatedFields(
         text=models.CharField(max_length=600)
+    )
+
+
+class Requisites(TranslatableModel):
+    translations = TranslatedFields(
+        fax=models.CharField(max_length=255, default=''),
+        rs=models.CharField(max_length=255, default=''),
+        address=models.CharField(max_length=600, default=''),
+        bank=models.CharField(max_length=600, default=''),
+        unn=models.CharField(max_length=255, default=''),
+        email=models.CharField(max_length=255, default=''),
     )

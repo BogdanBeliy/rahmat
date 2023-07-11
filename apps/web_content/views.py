@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 from apps.web_content.forms import LeadForm
 from apps.web_content.models import UTP, About, Delivery, AboutProduction, Product, Contacts, ShortDescription, Phone, \
-    AcceptionGranulsHeader, AcceptGranulsItem
+    AcceptionGranulsHeader, AcceptGranulsItem, Requisites, BackgroundImage
 
 
 def index(request, *args, **kwargs):
@@ -19,7 +19,8 @@ def index(request, *args, **kwargs):
     short_description = None
     accept_granuls_header = None
     accept_granuls_items = None
-
+    requisites = None
+    background = BackgroundImage.objects.all().first()
     if request.GET.get('lang'):
         utp = UTP.objects.language(request.GET['lang']).first()
         about = About.objects.language(request.GET['lang']).first()
@@ -30,6 +31,7 @@ def index(request, *args, **kwargs):
         contacts = Contacts.objects.language(request.GET['lang']).first()
         accept_granuls_header = AcceptionGranulsHeader.objects.language(request.GET['lang']).first()
         accept_granuls_items = AcceptGranulsItem.objects.language(request.GET['lang']).all()
+        requisites = Requisites.objects.language(request.GET['lang']).first()
     else:
         utp = UTP.objects.language('ru').first()
         about = About.objects.language('ru').first()
@@ -40,6 +42,7 @@ def index(request, *args, **kwargs):
         contacts = Contacts.objects.language('ru').first()
         accept_granuls_header = AcceptionGranulsHeader.objects.language('ru').first()
         accept_granuls_items = AcceptGranulsItem.objects.language('ru').all()
+        requisites = Requisites.objects.language('ru').first()
     if request.method == 'POST':
         form = LeadForm(request.POST)
         if form.is_valid():
@@ -55,6 +58,8 @@ def index(request, *args, **kwargs):
         'contacts': contacts,
         'accept_granuls_header': accept_granuls_header,
         'accept_granuls_items': accept_granuls_items,
-        'form': LeadForm()
+        'form': LeadForm(),
+        'requisites': requisites,
+        'background': background
     }
     return render(request, 'index.html', context=context)
